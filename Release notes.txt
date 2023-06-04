@@ -1,3 +1,5 @@
+1.0.2
+    Fix TimeZone completer for Set-UnattendTimeSetting
 1.0.1
     Add argument completers for the following Commands and parameters:
         Set-UnattendTimeSetting:TimeZone

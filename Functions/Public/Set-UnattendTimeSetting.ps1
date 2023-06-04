@@ -53,12 +53,12 @@ function Set-UnattendTimeSetting
 
             foreach ($Timezone in [System.TimeZoneInfo]::GetSystemTimeZones())
             {
-                if ($Timezone.Id -like "$wordToComplete*")
+                if ($Timezone.Id -like "$TrimmedWord*")
                 {
                     $CompletionText = "'$($Timezone.Id)'"
                     $ListItemText   = $Timezone.Id
                     $ResultType     = [System.Management.Automation.CompletionResultType]::ParameterValue
-                    $ToolTip        = $Item.DisplayName
+                    $ToolTip        = $Timezone.DisplayName
                     [System.Management.Automation.CompletionResult]::new($CompletionText, $ListItemText, $ResultType, $ToolTip)
                 }
             }

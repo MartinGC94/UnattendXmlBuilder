@@ -41,7 +41,7 @@ function Set-UnattendComputerName
         [string[]]
         $Pass = "specialize",
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string]
         $ComputerName
     )

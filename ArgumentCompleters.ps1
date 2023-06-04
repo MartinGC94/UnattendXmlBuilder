@@ -18,6 +18,7 @@ Register-ArgumentCompleter -CommandName New-UnattendBuilder,Set-UnattendLanguage
 Register-ArgumentCompleter -CommandName New-UnattendBuilder,Set-UnattendLanguageSetting -ParameterName InputLocale     -ScriptBlock $CultureCompleter
 Register-ArgumentCompleter -CommandName Set-UnattendLanguageSetting                     -ParameterName SetupUiLanguage -ScriptBlock $CultureCompleter
 Register-ArgumentCompleter -CommandName Set-UnattendLanguageSetting                     -ParameterName UserLocale -ScriptBlock $CultureCompleter
+Register-ArgumentCompleter -CommandName Set-UnattendLanguageSetting                     -ParameterName UiLanguageFallback -ScriptBlock $CultureCompleter
 
 Register-ArgumentCompleter -CommandName New-UnattendBuilder,Set-UnattendProductKey -ParameterName ProductKey -ScriptBlock {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameters)

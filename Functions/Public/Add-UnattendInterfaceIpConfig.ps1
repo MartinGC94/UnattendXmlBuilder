@@ -103,11 +103,11 @@ function Add-UnattendInterfaceIpConfig
     {
         if ($DefaultGateway)
         {
-            $Routes = ,@{
+            $Routes += @{
                 NextHopAddress = $DefaultGateway.ToString()
                 Metric = 0
                 Prefix = "0.0.0.0/0"
-            } + $Routes
+            }
         }
     }
 

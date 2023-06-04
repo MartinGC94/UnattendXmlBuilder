@@ -32,7 +32,7 @@ function AddFirewallGroupsToElement
         {
             $Attributes = [ordered]@{
                 action   = 'add'
-                keyValue = $GroupName
+                keyValue = (New-Guid).Guid
             }
             $FwGroupElement = $Parent.AppendChild($UnattendBuilder.CreateElement("FirewallGroup", $Attributes))
             $UnattendBuilder.CreateAndAppendElement("Group", $GroupName, $FwGroupElement)

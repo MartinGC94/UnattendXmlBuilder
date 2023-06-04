@@ -91,7 +91,7 @@ function Add-UnattendCommand
         [string]
         $RebootBehavior,
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string[]]
         $Command,
 

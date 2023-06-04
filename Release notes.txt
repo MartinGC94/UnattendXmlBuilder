@@ -1,2 +1,17 @@
+1.0.1
+    Add argument completers for the following Commands and parameters:
+        Set-UnattendTimeSetting:TimeZone
+        Set-UnattendLanguageSetting:UiLanguageFallback
+    Add positions for the following command and parameter combinations:
+        Add-UnattendCommand:Command
+        Add-UnattendDriverPath:Path
+        Set-UnattendComputerName:ComputerName
+        Set-UnattendProductKey:ProductKey
+    Fix commands that wouldn't work properly when using certain parameters:
+        Add-UnattendDriverPath:Path
+        Add-UnattendInterfaceIpConfig:DefaultGateway
+        Set-UnattendFirewallSetting:EnabledFirewallGroups
+        Set-UnattendFirewallSetting:DisabledFirewallGroups
+        Set-UnattendFirewallSetting:LogDroppedPackets
 1.0
     Initial release

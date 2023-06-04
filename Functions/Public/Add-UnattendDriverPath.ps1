@@ -49,7 +49,7 @@ function Add-UnattendDriverPath
         [string[]]
         $Pass = 'offlineServicing',
 
-        [Parameter()]
+        [Parameter(Position = 0)]
         [string[]]
         $Path,
 
@@ -75,7 +75,7 @@ function Add-UnattendDriverPath
             foreach ($Item in $Path)
             {
                 $PathElement = $DriverPaths.AppendChild($UnattendBuilder.CreateElement("PathAndCredentials", @{action = "add";keyValue = ($Counter++)}))
-                $UnattendBuilder.CreateAndAppendElement("Path", $PathElement)
+                $UnattendBuilder.CreateAndAppendElement("Path", $Item, $PathElement)
                 if ($Credential)
                 {
                     $UnattendBuilder.AddCredentialToElement($Credential, $PathElement)

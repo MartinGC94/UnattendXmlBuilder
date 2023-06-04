@@ -42,7 +42,7 @@ function Set-UnattendProductKey
         [string[]]
         $Pass = ("windowsPE", "specialize"),
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string]
         $ProductKey
     )

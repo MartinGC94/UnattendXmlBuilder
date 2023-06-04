@@ -47,6 +47,22 @@ function Set-UnattendTimeSetting
         $Pass = "specialize",
 
         [Parameter()]
+        [ArgumentCompleter({
+            param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameters)
+            $TrimmedWord = $wordToComplete.Trim(("'",'"'))
+
+            foreach ($Timezone in [System.TimeZoneInfo]::GetSystemTimeZones())
+            {
+                if ($Timezone.Id -like "$wordToComplete*")
+                {
+                    $CompletionText = "'$($Timezone.Id)'"
+                    $ListItemText   = $Timezone.Id
+                    $ResultType     = [System.Management.Automation.CompletionResultType]::ParameterValue
+                    $ToolTip        = $Item.DisplayName
+                    [System.Management.Automation.CompletionResult]::new($CompletionText, $ListItemText, $ResultType, $ToolTip)
+                }
+            }
+        })]
         [string]
         $TimeZone,
 

@@ -122,7 +122,7 @@ function Set-UnattendFirewallSetting
             $FwCommonParams = @{
                 UnattendBuilder = $UnattendBuilder
                 Parent          = $GroupsElement
-                FirewallProfile = $FirewallProfile
+                FirewallProfile = $FirewallProfile.ToLower()
             }
             if ($EnabledFirewallGroups)
             {
@@ -168,7 +168,7 @@ function Set-UnattendFirewallSetting
                 }
                 'LogDroppedPackets'
                 {
-                    $UnattendBuilder.SetElementValue("${Item}Profile_LogDroppedPacket", $LogDroppedPackets, $Component)
+                    $UnattendBuilder.SetElementValue("${Item}Profile_LogDroppedPackets", $LogDroppedPackets, $Component)
                     continue
                 }
                 'LogSuccessfulConnections'

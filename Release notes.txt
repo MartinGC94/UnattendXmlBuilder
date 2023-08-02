@@ -1,3 +1,5 @@
+1.0.3
+    Resolve relative paths for the SourceFile parameter of the New-UnattendBuilder command
 1.0.2
     Fix TimeZone completer for Set-UnattendTimeSetting
 1.0.1

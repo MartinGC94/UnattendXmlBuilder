@@ -104,7 +104,8 @@ function New-UnattendBuilder
         {
             if ($SourceFile)
             {
-                [UnattendBuilder]::new($SourceFile)
+                $ResolvedPath = Resolve-Path -LiteralPath $SourceFile -ErrorAction Stop
+                [UnattendBuilder]::new($ResolvedPath.ProviderPath)
             }
             elseif ($SourceDocument)
             {

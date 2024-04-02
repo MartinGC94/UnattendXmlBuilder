@@ -1,3 +1,7 @@
+1.1
+    Assign parameter position 0 to Export-UnattendFile:FilePath
+    Add "RecoveryBIOS" as a valid value for Add-UnattendDiskPartition:PartitionType
+    Update the BIOS disk template for Add-UnattendDiskPartition so it creates the partition with the correct ID.
 1.0.3
     Resolve relative paths for the SourceFile parameter of the New-UnattendBuilder command
 1.0.2

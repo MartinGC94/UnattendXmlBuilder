@@ -86,7 +86,7 @@ function Add-UnattendDiskPartition
 
         [Parameter(ParameterSetName = "CustomSize")]
         [Parameter(ParameterSetName = "CustomExtend")]
-        [ValidateSet('Primary', 'EFI', 'MSR', 'Recovery')]
+        [ValidateSet('Primary', 'EFI', 'MSR', 'Recovery', 'RecoveryBIOS')]
         [string]
         $PartitionType = 'Primary',
 
@@ -128,7 +128,6 @@ function Add-UnattendDiskPartition
             }
             $RecoveryParams = @{
                 SizeMB        = 620
-                PartitionType = "Recovery"
                 Filesystem    = "NTFS"
                 VolumeLabel   = "Recovery"
             }
@@ -143,7 +142,7 @@ function Add-UnattendDiskPartition
             {
                 $UnattendBuilder |
                     Add-UnattendDiskPartition @Disk @SystemCommonParams -PartitionType Primary -Active -Filesystem NTFS |
-                    Add-UnattendDiskPartition @Disk @RecoveryParams |
+                    Add-UnattendDiskPartition @Disk @RecoveryParams -PartitionType RecoveryBIOS |
                     Add-UnattendDiskPartition @Disk @WindowsParams
             }
             else
@@ -151,7 +150,7 @@ function Add-UnattendDiskPartition
                 $UnattendBuilder |
                     Add-UnattendDiskPartition @Disk @SystemCommonParams -PartitionType EFI -Filesystem FAT32 |
                     Add-UnattendDiskPartition @Disk -SizeMB 16 -PartitionType MSR |
-                    Add-UnattendDiskPartition @Disk @RecoveryParams |
+                    Add-UnattendDiskPartition @Disk @RecoveryParams -PartitionType Recovery |
                     Add-UnattendDiskPartition @Disk @WindowsParams
             }
         }
@@ -192,6 +191,11 @@ function Add-UnattendDiskPartition
             {
                 $RealPartitionType = "Primary"
                 $RealCustomPartitionID = 'DE94BBA4-06D1-4D40-A16A-BFD50179D6AC'
+            }
+            elseif ($PartitionType -eq "RecoveryBIOS")
+            {
+                $RealPartitionType = "Primary"
+                $RealCustomPartitionID = '0x27'
             }
             else
             {

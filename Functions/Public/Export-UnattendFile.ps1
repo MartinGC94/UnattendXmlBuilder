@@ -28,7 +28,7 @@ function Export-UnattendFile
         [UnattendBuilder]
         $UnattendBuilder,
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string]
         $FilePath
     )
